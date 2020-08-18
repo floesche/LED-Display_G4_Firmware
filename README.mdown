@@ -1,0 +1,3 @@
+# G4 Firmware
+
+This repository is part of <https://reiserlab.github.io/Modular-LED-Display/>. It contains the firmware for G4 driver board and G4 comm board.
