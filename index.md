@@ -1,6 +1,8 @@
 ---
 title: Firmware
-parent: Generation 4
+parent: Setup
+grand_parent: Generation 4
+nav_order: 11
 ---
 
 # Firmware
