@@ -9,16 +9,16 @@ nav_order: 1
 
 Each Modular LED display of Generation 4 uses five micro controller units per panel. This text explains how flash a firmware on these MCUs.
 
-The [driver](../Documentation/docs/driver.md) and [comm board](../Documentation/docs/comm.md) use a total of 5 micro controller units. To program these 5 ATmega328, you will need the [programmer](../Documentation/docs/programmer.md) you built during the [acquisition](../Documentation/docs/acquisition.).
+The [driver](../../Panel/docs/driver.md) and [comm board](../../Hardware/docs/comm.md) use a total of 5 micro controller units. To program these 5 ATmega328, you will need the [programmer](programmer.md) you built during the [acquisition](../../../docs/G4-Acquisition.md).
 
 ## Prerequisites
 
-- [driver board](../Documentation/docs/driver.md)
-- [comm board](../Documentation/docs/comm.md)
-- [Arduino](../Documentation/docs/cots.md#arduino)
-- [Arduino shield](../Documentation/docs/programmer.md#arduino)
-- [driver board shield](../Documentation/docs/programmer.md#driver)
-- [comm board shield](../Documentation/docs/programmer.md#comm)
+- [driver board](../../Panel/docs/driver.md)
+- [comm board](../../Hardware/docs/comm.md)
+- [Arduino](../../../docs/G4-COTS.md#arduino)
+- [Arduino shield](programmer.md#arduino)
+- [driver board shield](programmer.md#driver)
+- [comm board shield](programmer.md#comm)
 - computer
 
 Install the custom version of the Arduino IDE on your computer. This IDE has the PanelsG4 board added as a target.
@@ -50,7 +50,7 @@ These steps should be similar to what is described in an [Arduino tutorial onlin
 1. Connect panel to programmer
 1. Connect programmer to shield via ribbon cable (note)
 1. Go to *Tools*{:.gui-txt} ­→ *Burn Bootloader*{:.gui-txt}
-1. Open the `driver.ino` sketch (latest version is in [`hardware_v0p2/driver/`]((https://github.com/floesche/panels_g4_firmware/tree/master/hardware_v0p2/driver)))
+1. Open the `driver.ino` sketch (latest version is in [`hardware_v0p2/driver/`](https://github.com/floesche/panels_g4_firmware/tree/master/hardware_v0p2/driver))
 1. Select subdevice using dip switch. Up is selected ­only one should be up at a time[^2].
 1. Go to *Sketch*{:.gui-txt} ­→ *Upload Using Programmer*{:.gui-txt} to upload sketch to panel.
 
