@@ -21,7 +21,7 @@ You will need the following parts:
 - [comm board shield](programmer.md#comm)
 - (Windows) computer
 
-Install the [custom version of the Arduino IDE](https://github.com/floesche/panels_g4_firmware/releases/download/untagged-65ae54ed5688c6b404fd/arduino-panelsg4-1.6.5-r5.zip) on your computer. This IDE has the PanelsG4 board added as a target. The Windows version of Arduino-1.6.5 is provided as an asset to "Customized Arduino IDE" release on github.
+Install the [custom version of the Arduino IDE](https://github.com/floesche/panels_g4_firmware/releases/download/arduino-1.6.5-r5/arduino-panelsg4-1.6.5-r5.zip) on your computer. This IDE has the PanelsG4 board added as a target. The Windows version of Arduino-1.6.5 is provided as an asset to "Customized Arduino IDE" release on github.
 
 {::comment}
 TODO: Possibly provide alternative
