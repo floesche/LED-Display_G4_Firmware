@@ -58,9 +58,9 @@ The following has to be done only once for all comm boards: In the the Arduino I
 
 ## Connect comm board
 
-To program the ATMega328 on a comm board, connect the board to the comm shield board in a way, that you can see the components on both boards (also see image). There is no need to connect the external power supply, power is provided through the Arduino shield.
+![How to connect a comm shield](../assets/comm_shield_assembly.jpg){:.ifr .pop}
 
-![How to connect a comm shield](../assets/comm_shield_assembly.jpg)
+To program the ATMega328 on a comm board, connect the board to the comm shield board in a way, that you can see the components on both boards (also see image). There is no need to connect the external power supply, power is provided through the Arduino shield.
 
 ## Flash comm board firmware
 {:.clear}
@@ -92,14 +92,14 @@ The following has to be done only once for all driver boards: In the the Arduino
 
 ## Connect driver board
 
-The first step is to connect the [driver board](../../Panel/docs/driver.md) to the [driver board shield](programmer.md#driver). The correct orientation of the driver is when the two triangles printed on the board point away from the connector (up in the picture). This will also mean, that the upper edge of the shield and the driver are well aligned and the lower edge of the driver aligns with the printed line on the shield. Make sure you double check the orientation as there is a chance of breaking the driver. There is no need to connect the external power supply, power is provided through the Arduino shield.
+![How to assemble a driver shield](../assets/driver_shield_assembly.jpg){:.ifr .pop}
 
-![How to assemble a driver shield](../assets/driver_shield_assembly.jpg)
+The first step is to connect the [driver board](../../Panel/docs/driver.md) to the [driver board shield](programmer.md#driver). The correct orientation of the driver is when the two triangles printed on the board point away from the connector (up in the picture). This will also mean, that the upper edge of the shield and the driver are well aligned and the lower edge of the driver aligns with the printed line on the shield. Make sure you double check the orientation as there is a chance of breaking the driver. There is no need to connect the external power supply, power is provided through the Arduino shield.
 
 ## Flash driver board firmware
 {:.clear}
 
-![Dip switch selecting subdevice 1](../assets/driver_shield_dip-switch.jpg){:.ifr}
+![Dip switch selecting subdevice 1](../assets/driver_shield_dip-switch.jpg){:.ifr .pop}
 
 Once the driver is attached to the driver shield, you can connect the driver shield to the Arduino shield with the ribbon cable. Make sure to disconnect the ribbon cable when changing the driver board.
 

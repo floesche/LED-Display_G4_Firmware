@@ -17,7 +17,7 @@ The use of the programmer will be explained in more detail in another section, b
 ## Arduino shield
 {:#arduino}
 
-![A rendering of the Arduino shield](../assets/arduino_shield_render.jpg){:.ifr}
+![A rendering of the Arduino shield](../assets/arduino_shield_render.jpg){:.ifr .pop}
 
 The Arduino programming shield measures 72.39×53.34mm². The gerber files and a drill file of the most recent [version v0.1](https://github.com/floesche/panels_g4_hardware/tree/master/atmega328/four_panel/20mm_matrix/ver3/programmer/prog_shield/gerber_v0p1) are the same as in the zip file, ready to be sent to the manufacturer. 
 
@@ -28,7 +28,7 @@ The basic functionality of the Arduino shield is to convert the signals from the
 ## Driver board shield
 {:#driver .clear}
 
-![A rendering of the driver board programmer](../assets/driver_shield_render.jpg){:.ifr}
+![A rendering of the driver board programmer](../assets/driver_shield_render.jpg){:.ifr .pop}
 
 The driver programmer has double the size of a panel board, it is 40×80mm².
 
@@ -41,7 +41,7 @@ The shield adapts the signal from the ribbon connector (P4) to the four driver b
 ## Comm board shield
 {:#comm .clear}
 
-![A rendering of the communication board programmer](../assets/comm_shield_render.jpg){:.ifr}
+![A rendering of the communication board programmer](../assets/comm_shield_render.jpg){:.ifr .pop}
 
 With 40×40mm² the PCB for the communication board programmer has the same dimensions as a communication board or a driver board.
   
