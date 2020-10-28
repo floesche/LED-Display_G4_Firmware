@@ -5,6 +5,11 @@ grand_parent: Generation 4
 nav_order: 1
 ---
 
+Software running on micro controller units (MCU) is considered firmware. The document guides you from obtaining the hardware to make the comm and driver panel work.
+
+1. TOC
+{:toc}
+
 # Firmware
 
 The [driver](../../Panel/docs/driver.md) and [comm board](../../Hardware/docs/comm.md) use a total of five micro controller units (MCUs). To program these five ATmega328, you will need the [programmer](programmer.md) explained in the [acquisition](../../../docs/G4-Acquisition.md) step. This text explains, how an Arduino can be used as a ["In-circuit Serial Programmer" (ISP)](#isp) to flash the firmware to [the driver](#driver) and the [comm board](#comm).

@@ -5,6 +5,9 @@ grand_parent: Generation 4
 nav_order: 8
 ---
 
+1. TOC
+{:toc}
+
 # Programmer
 
 The programmer is built from 3 PCB: An Arduino shield, the comm programmer, and the driver programmer. The three boards are designed to be assembled by hand: These simple 2-layer boards use very few through-hole components and only one of each board is needed for the setup of an arena. 
