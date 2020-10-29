@@ -20,7 +20,7 @@ You will need the following parts:
 
 - [driver board](../../Panel/docs/driver.md)
 - [comm board](../../Hardware/docs/comm.md)
-- [Arduino](../../../docs/G4-COTS.md#arduino)
+- [Arduino](../../../docs/G4-COTS.md#arduino-uno)
 - [Arduino shield](programmer.md#arduino)
 - [driver board shield](programmer.md#driver)
 - [comm board shield](programmer.md#comm)
