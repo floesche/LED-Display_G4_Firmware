@@ -108,7 +108,7 @@ The first step is to connect the [driver board](../../Panel/docs/driver.md) to t
 
 Once the driver is attached to the driver shield, you can connect the driver shield to the Arduino shield with the ribbon cable. Make sure to disconnect the ribbon cable when changing the driver board.
 
-Select one of the four subdevices to be programmed by moving one of the dip switches up and the three others down. In the picture on the right, the first subdevice is selected. Select *Tools*{:.gui-txt} ­→ *Burn Bootloader*{:.gui-txt} to write the boot loader to the ATMega. With the correct `driver.ino` sketch opened, select *Sketch*{:.gui-txt} ­→ *Upload Using Programmer*{:.gui-txt} to upload sketch to panel. Currently the latest version of the driver sketch is in [`hardware_v0p2/driver/`](https://github.com/floesche/panels_g4_firmware/tree/master/hardware_v0p2/driver).
+Select one of the four subdevices to be programmed by moving one of the dip switches away from the panel and the other three towards the panel. In the picture on the right, subdevice number 4 is selected through the dip switch on the left. Select *Tools*{:.gui-txt} ­→ *Burn Bootloader*{:.gui-txt} to write the boot loader to the ATMega. With the correct `driver.ino` sketch opened, select *Sketch*{:.gui-txt} ­→ *Upload Using Programmer*{:.gui-txt} to upload sketch to panel. Currently the latest version of the driver sketch is in [`hardware_v0p2/driver/`](https://github.com/floesche/panels_g4_firmware/tree/master/hardware_v0p2/driver).
 
 Repeat the steps for "Flash Firmware" for the other three subdevices on the same driver panel.
 
@@ -120,7 +120,7 @@ Repeat the steps for "Flash Firmware" for the other three subdevices on the same
 1. Go to *Tools*{:.gui-txt} ­→ *Programmer*{:.gui-txt} and select *Arduino as ISP*{:.gui-txt} (not ArduinoISP!!!)
 1. Connect a driver board to the driver shield board[^2]
 1. Connect driver shield to the Arduino shield via ribbon cable[^1]
-    1. Select subdevice using dip switch. Up is selected ­only one should be up at a time[^3].
+    1. Select subdevice using dip switch. Away from the panel means "on", ­only one should be up at a time[^3].
     1. Go to *Tools*{:.gui-txt} ­→ *Burn Bootloader*{:.gui-txt}
     1. Open the `driver.ino` sketch
     1. Go to *Sketch*{:.gui-txt} ­→ *Upload Using Programmer*{:.gui-txt} to upload sketch to panel.
@@ -132,6 +132,6 @@ Repeat the steps for "Flash Firmware" for the other three subdevices on the same
 
 [^1]: Always remove ribbon cable before removing and attaching new driver subpanel as sometimes attaching a panel without doing so will corrupt the ArduinoISP program on the Uno
 
-[^2]: Note, you do not need external power supply the Arduino will provide power
+[^2]: Note, you do not need external power supply the Arduino will provide power.
 
-[^3]: To fully program the driver you chip you need to all four atmega328's which means programming the bootloader and firmware for all four dip switch "on" positions.
+[^3]: To fully program the driver you need to program all four atmega328's, which means programming the bootloader and firmware for all four dip switch "on" positions, one at a time.
