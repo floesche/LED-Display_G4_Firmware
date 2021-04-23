@@ -43,7 +43,7 @@ void setup() {
   // pinMode(PIN_SPI_SCK, OUTPUT);
   // pinMode(PIN_SPI_MOSI, OUTPUT);
   Serial.begin(115200);
-  while(!Serial);
+  // while(!Serial);
   Serial.println("Initialization finished");
   SPI.begin();
 }
