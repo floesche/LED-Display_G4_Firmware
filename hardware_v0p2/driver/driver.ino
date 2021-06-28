@@ -1,6 +1,7 @@
 #include <util/twi.h>
 
 #define INVERT_ROW_PINS
+// INVERT_ROW_PINS is needed for G4 driver v1
 
 #ifdef SERIAL_DEBUG
 #include <Streaming.h>
@@ -10,6 +11,7 @@
 // ----------------------------------------------------------------------------
 #define NOP __asm__ __volatile__ ("nop\n\t")
 
+// Column pins are port D
 #ifdef SERIAL_DEBUG
 #define SET_COL_PINS(value) ({                           \
     PORTD = (PORTD & 0b00000011) + (value & 0b11111100); \
@@ -18,21 +20,18 @@
 #define SET_COL_PINS(value) ((PORTD=value))
 #endif
 
-#ifdef INVERT_ROW_PINS
 
+// Row pins are on ports C and B
+#ifdef INVERT_ROW_PINS
 #define SET_ROW_PINS(value) ({                              \
     PORTB = (PORTB & 0b11111100) + ((~value) >> 6);         \
     PORTC = (PORTC & 0b11000000) + ((~value) & 0b00111111); \
 })
-
-
 #else
-
 #define SET_ROW_PINS(value) ({                           \
     PORTB = (PORTB & 0b11111100) + (value  >> 6);        \
     PORTC = (PORTC & 0b11000000) + (value & 0b00111111); \
 })
-
 #endif
 
 
@@ -56,8 +55,17 @@ void setup()
     // Setup SPI communications
     pinMode(MISO,OUTPUT);
     pinMode(SS, INPUT);
-    SPCR |= _BV(SPE);
+    //SPCR |= _BV(SPE);
+    SPCR = _BV(SPE);    // Based on Atmel datasheet; OM 2021-06-09
 
+    // Setup pin modes for row & col pins
+    resetRowColPins();
+
+    // Turn off interrupts
+    noInterrupts();
+}
+
+void resetRowColPins() {
     // Set data direction for row pins
     DDRB |= _BV(0) | _BV(1);
     DDRC |= _BV(0) | _BV(1) | _BV(2) | _BV(3)| _BV(4)| _BV(5);
@@ -70,12 +78,9 @@ void setup()
     DDRD = 0xff; 
 #endif
 
-    // Set initial state for column and row pins
+    // Set initial state for column and row pins (all off)
     SET_COL_PINS(0x00); 
     SET_ROW_PINS(0xff);
-
-    // Turn off interrupts
-    noInterrupts();
 }
 
 void loop()
@@ -88,13 +93,14 @@ void loop()
 
     // Read incoming spi message
     // ------------------------------------------------------------------------
-    while (digitalRead(SS) == 1); // Slow replace with direct port read
+    // while (digitalRead(SS) == 1); // Wait for chip-select enable
+    while (PINB & _BV(2)); // Wait for chip-select enable (should be faster than above)
 
-    while (!(SPSR & _BV(SPIF)));
     while (true)
     {
-        // Read byte from spi data register
-        buffer[bufPos] = SPDR;
+        // SPI transfer
+        while (!(SPSR & _BV(SPIF))); // wait for transmission complete
+        buffer[bufPos] = SPDR;       // Read byte from spi data register
         bufPos++;
         if (bufPos == 1)
         {
@@ -113,9 +119,9 @@ void loop()
             dataReady = true;
             break;
         }
-        while (!(SPSR & _BV(SPIF)));
     }
-    while (digitalRead(SS) == 0); // Slow replace with direct port read
+    //while (digitalRead(SS) == 0); // Wait for chip-select to be disabled
+    while (!(PINB & _BV(2))); // Wait for chip-select disable (should be faster than above)
 
     // Read SPSR and SPDR a couple times - to clear out any possible mismatch 
     for (uint8_t i=0; i<5; i++)
@@ -148,13 +154,17 @@ void loop()
         }
         delayValue = (*bufferPtr & DELAY_MASK);
 
-        SET_ROW_PINS(~_BV(0));
+        // Activate first row
+        SET_ROW_PINS(~_BV(0)); // ~_BV(0) => 0b11111110
 
         while (row < 8)
         {
             // Get column values based on matrix
-            colValue = 0x00;
+            colValue = 0x00; // initialize colVal to all 0
 
+            // check if each column value is > pwmThreshold
+            //  (pwmThreshold will increase from 0 to 15 in successive
+            //  loop iterations in 16-level mode)
             if (pwmMaxCount == 16)
             {
                 // 16 -level grayscale (~1.3kHz)
@@ -192,27 +202,33 @@ void loop()
             }
             SET_COL_PINS(colValue);
 
-            // Update pwm count and row count
-            pwm++;
-            if (pwm >= pwmMaxCount)
-            {
-                pwm = 0;
-                row++;
-                SET_COL_PINS(0x00);
-                if (row < 8)
-                {
-                    SET_ROW_PINS(~_BV(row%8));
-                }
-                else
-                {
-                    SET_ROW_PINS(0xff);
-                }
-            }
+            // fixed delay at the end of each loop
             if (delayValue > 0)
             {
                 for (uint8_t delayCount=0; delayCount < delayValue; delayCount++)
                 {
                     NOP;
+                }
+            }
+
+            // Update pwm count and row count
+            pwm++;
+            if (pwm >= pwmMaxCount)
+            {
+                // finished all pwm values: reset pwm and increment row
+                SET_COL_PINS(0x00); // turn off all columns
+                pwm = 0;
+                row++;
+                if (row < 8)
+                {
+                    // First turn off current row; then turn on next row.
+                    // The temporal offset reduces power transients; OM 2021-07-08
+                    SET_ROW_PINS(0xff); // deactivate all rows
+                    SET_ROW_PINS(~_BV(row%8)); // activate next row
+                }
+                else
+                {
+                    SET_ROW_PINS(0xff); // deactivate all rows
                 }
             }
 
