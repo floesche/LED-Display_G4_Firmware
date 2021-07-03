@@ -6,17 +6,21 @@ This repository is part of <https://reiserlab.github.io/Modular-LED-Display/>. I
 # Files: 
 
 ```
+├── assets                          - binary content for website
+├── docs                            - documentation, website content
 ├── hardware_v0p1                   - don't use: old firmware for I2C communication
 │   ├── comm
 │   └── driver
 ├── hardware_v0p2                   - current firmware, SPI communication
 │   ├── comm                        - firmware for comm board (up to v0.3)
-│   ├── driver                      - firmware for driver board (up to v0.3)
+│   ├── driver                      - firmware for driver board (up to v0.3, includes patch from HMS)
 │   ├── driver_w_comp               - firmware for driver board, stretch row on duration
 │   └── spi_test                    - SPI signal test setup
 ├── library
 │   └── ic2master
 └── test_controllers                - don't use: firmware for prototype test arena
+    ├── commtest
+    ├── drivertest
     ├── due_test_controller
     ├── teensy3x_test_controller
     └── uno_test_controller
