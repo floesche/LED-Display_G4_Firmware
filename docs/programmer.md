@@ -31,7 +31,7 @@ The basic functionality of the Arduino shield is to convert the signals from the
 
 Apparently there is an error in the arduino shield of the programmer. As a quick fix, please cut the trace on the bottom as shown in the image on the right and add a new connection as demonstrated in the two images.
 
-![An image of the actual board](../assets/arduino_shield_bottom_img.jpg){:.ifr .pop .clear}
+![An image of the actual board](../assets/arduino_shield_top_img.jpg){:.ifr .pop .clear}
 
 ## Driver board shield
 {:#driver .clear}
