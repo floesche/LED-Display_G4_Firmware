@@ -12,15 +12,15 @@ Software running on micro controller units (MCU) is considered firmware. The doc
 
 # Firmware
 
-The [driver](../../Panel/docs/driver.md) and [comm board](../../Hardware/docs/comm.md) use a total of five micro controller units (MCUs). To program these five ATmega328, you will need the [programmer](programmer.md) explained in the [acquisition](../../../docs/G4-Acquisition.md) step. This text explains, how an Arduino can be used as a ["In-circuit Serial Programmer" (ISP)](#isp) to flash the firmware to [the driver](#driver) and the [comm board](#comm).
+The [driver]({{site.baseurl}}/Panel/docs/driver.html) and [comm board]({{site.baseurl}}/Hardware/docs/comm.html) use a total of five micro controller units (MCUs). To program these five ATmega328, you will need the [programmer](programmer.md) explained in the [acquisition]({{site.baseurl}}/docs/G4-Acquisition.html) step. This text explains, how an Arduino can be used as a ["In-circuit Serial Programmer" (ISP)](#isp) to flash the firmware to [the driver](#driver) and the [comm board](#comm).
 
 ## Prerequisites
 
 You will need the following parts:
 
-- [driver board](../../Panel/docs/driver.md)
-- [comm board](../../Hardware/docs/comm.md)
-- [Arduino](../../../docs/G4-COTS.md#arduino-uno)
+- [driver board]({{site.baseurl}}/Panel/docs/driver.html)
+- [comm board]({{site.baseurl}}/Hardware/docs/comm.html)
+- [Arduino]({{site.baseurl}}/docs/G4-COTS.html#arduino-uno)
 - [Arduino shield](programmer.md#arduino)
 - [driver board shield](programmer.md#driver)
 - [comm board shield](programmer.md#comm)
@@ -74,7 +74,7 @@ Once the comm board is attached to the comm shield, you can connect the comm shi
 
 With the Arduino IDE open, select *Tools*{:.gui-txt} ­→ *Burn Bootloader*{:.gui-txt} to write the boot loader to the comm board's MCU. With the correct `comm.ino` open (the latest version is in [`hardware_v0p2/comm/`](https://github.com/floesche/panels_g4_firmware/tree/master/hardware_v0p2/comm)), select *Sketch*{:.gui-txt} ­→ *Upload Using Programmer*{:.gui-txt}. Now the comm board should be fully functional. Disconnect the ribbon cable before programming the next comm board.
 
-## Checklist
+## Checklist for flashing comm firmware
 
 1. Connect Arduino shield to the computer[^1]
 1. Open Arduino IDE
@@ -112,7 +112,7 @@ Select one of the four subdevices to be programmed by moving one of the dip swit
 
 Repeat the steps for "Flash Firmware" for the other three subdevices on the same driver panel.
 
-## Checklist
+## Checklist for flashing driver firmware
 
 1. Connect Arduino shield to the computer[^1]
 1. Open Arduino IDE
