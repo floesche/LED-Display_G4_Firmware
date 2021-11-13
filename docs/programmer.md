@@ -19,19 +19,18 @@ The use of the programmer is explained in more detail in the [Assembly → Firmw
 ![A rendering of the Arduino shield](assets/arduino-shield_front_render.jpg "A rendering of the Arduino shield"){:.ifr .pop}
 
 The Arduino programming shield measures 72.39×53.34mm². The gerber files and a drill file of the most recent [version v0.1](https://github.com/floesche/panels_g4_hardware/tree/master/atmega328/four_panel/20mm_matrix/ver3/programmer/prog_shield/gerber_v0p1) are the same as in the zip file, ready to be sent to the manufacturer.
-{:.clear}
 
 ### Function of the Arduino shield
 
 The basic functionality of the Arduino shield is to convert the signals from the Arduino connectors on the side the ribbon connector (P1).
 
 ### Quick Fix
+{:.clear}
 
-![The Arduino shield board](assets/arduino-shield_back_photo.jpg "The Arduino shield board"){:.ifr .pop}
+![The back of the Arduino shield board with the quick fix](assets/arduino-shield_back_photo.jpg "The back of the Arduino shield board with the quick fix"){:.ifr .pop}
+![The front of the Arduino shield board with the quick fix](assets/arduino-shield_front_photo.jpg "The front of the Arduino shield board with the quick fix"){:.ifr .pop .clear}
 
 Apparently there is an error in the arduino shield of the programmer. As a quick fix, please cut the trace on the bottom as shown in the image on the right and add a new connection as demonstrated in the two images.
-
-![The front of the Arduino shield board](assets/arduino-shield_front_photo.jpg "The front of the Arduino shield board"){:.ifr .pop .clear}
 
 ## Driver board shield
 {:#driver .clear}
