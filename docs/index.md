@@ -63,7 +63,7 @@ The following has to be done only once for all comm boards: In the the Arduino I
 
 ## Connect comm board
 
-![How to connect a comm shield](../assets/comm_shield_assembly.jpg){:.ifr .pop}
+![How to connect a comm shield](assets/comm-shield_assembly.jpg){:.ifr .pop}
 
 To program the ATMega328 on a comm board, connect the board to the comm shield board in a way, that you can see the components on both boards (also see image). There is no need to connect the external power supply, power is provided through the Arduino shield.
 
@@ -97,14 +97,14 @@ The following has to be done only once for all driver boards: In the the Arduino
 
 ## Connect driver board
 
-![How to assemble a driver shield](../assets/driver_shield_assembly.jpg){:.ifr .pop}
+![How to assemble a driver shield](assets/driver-shield_assembly.jpg "How to assemble a driver shield"){:.ifr .pop}
 
 The first step is to connect the [driver board]({{site.baseurl}}/Generation%204/Panel/docs/driver.html) to the [driver board shield](programmer.md#driver). The correct orientation of the driver is when the two triangles printed on the board point away from the connector (up in the picture). This will also mean, that the upper edge of the shield and the driver are well aligned and the lower edge of the driver aligns with the printed line on the shield. Make sure you double check the orientation as there is a chance of breaking the driver. There is no need to connect the external power supply, power is provided through the Arduino shield.
 
 ## Flash driver board firmware
 {:.clear}
 
-![Dip switch selecting subdevice 1](../assets/driver_shield_dip-switch.jpg){:.ifr .pop}
+![Dip switch selecting subdevice 1](assets/driver-shield_dip-switch_detail.jpg "Dip switch selecting subdevice 1"){:.ifr .pop}
 
 Once the driver is attached to the driver shield, you can connect the driver shield to the Arduino shield with the ribbon cable. Make sure to disconnect the ribbon cable when changing the driver board.
 
@@ -130,8 +130,8 @@ Repeat the steps for "Flash Firmware" for the other three subdevices on the same
 
 ---
 
-[^1]: Always remove ribbon cable before removing and attaching new driver subpanel as sometimes attaching a panel without doing so will corrupt the ArduinoISP program on the Uno
+[^1]: Always remove ribbon cable before removing and attaching new driver subpanel as sometimes attaching a panel without doing so will corrupt the ArduinoISP program on the Arduino Uno
 
 [^2]: Note, you do not need external power supply the Arduino will provide power.
 
-[^3]: To fully program the driver you need to program all four atmega328's, which means programming the bootloader and firmware for all four dip switch "on" positions, one at a time.
+[^3]: To fully program the driver you need to program all four ATmega328's, which means programming the bootloader and firmware for all four dip switch "on" positions, one at a time.
