@@ -12,18 +12,18 @@ Software running on micro controller units (MCU) is considered firmware. The doc
 
 # Firmware
 
-The [driver]({{site.baseurl}}/Generation%204/Panel/docs/driver.html) and [comm board]({{site.baseurl}}/Generation%204/Hardware/docs/comm.html) use a total of five micro controller units (MCUs). To program these five ATmega328, you will need the [programmer](programmer.md) explained in the [acquisition]({{site.baseurl}}/docs/G4-Acquisition.html) step. This text explains, how an Arduino can be used as a ["In-circuit Serial Programmer" (ISP)](#isp) to flash the firmware to [the driver](#driver) and the [comm board](#comm).
+The [driver]({{site.baseurl}}/Generation%204/Panel/docs/driver.html) and [comm board]({{site.baseurl}}/Generation%204/Hardware/docs/comm.html) use a total of five micro controller units (MCUs). To program these five ATmega328, you will need the [programmer]({{site.baseurl}}/Generation%204/Hardware/docs/programmer.html) explained in the [acquisition]({{site.baseurl}}/docs/g4_acquisition.html) step. This text explains, how an Arduino can be used as a ["In-circuit Serial Programmer" (ISP)](#isp) to flash the firmware to [the driver](#driver) and the [comm board](#comm).
 
 ## Prerequisites
 
 You will need the following parts:
 
-- [driver board]({{site.baseurl}}/Panel/docs/driver.html)
-- [comm board]({{site.baseurl}}/Hardware/docs/comm.html)
-- [Arduino]({{site.baseurl}}/docs/G4-COTS.html#arduino-uno)
-- [Arduino shield](programmer.md#arduino)
-- [driver board shield](programmer.md#driver)
-- [comm board shield](programmer.md#comm)
+- [driver board]({{site.baseurl}}/Generation%204/Panel/docs/driver.html)
+- [comm board]({{site.baseurl}}/Generation%204/Hardware/docs/comm.html)
+- [Arduino]({{site.baseurl}}/docs/g4_off-the-shelf.html#arduino-uno)
+- [Arduino shield]({{site.baseurl}}/Generation%204/Hardware/docs/programmer.html#arduino)
+- [driver board shield]({{site.baseurl}}/Generation%204/Hardware/docs/programmer.html#driver)
+- [comm board shield]({{site.baseurl}}/Generation%204/Hardware/docs/programmer.html#comm)
 - (Windows) computer
 
 Install the [custom version of the Arduino IDE](https://github.com/floesche/panels_g4_firmware/releases/download/arduino-1.6.5-r5/arduino-panelsg4-1.6.5-r5.zip) on your computer. This IDE has the PanelsG4 board added as a target. The Windows version of Arduino-1.6.5 is provided as an asset to "Customized Arduino IDE" release on github.
@@ -32,8 +32,7 @@ Install the [custom version of the Arduino IDE](https://github.com/floesche/pane
 TODO: Possibly provide alternative
 {:/comment}
 
-## Turn Arduino into In-circuit Serial Programmer (ISP)
-{:#isp}
+## Turn Arduino into In-circuit Serial Programmer (ISP) {#isp}
 
 To flash the firmware to the panel MCUs, the Arduino will act as a programmer. For this the Arduino requires a special firmware, which is provided as "example" code. Follow these steps to turn the Arduino into an ISP.
 
@@ -54,8 +53,7 @@ There is no verbose output that helps debugging problems, but one of the three f
 1. Make sure you driver and comm boards are connected in the correct way. It's easy to mix up polarity which, in the worst case, can corrupt a panel but is often solved by using the correct polarity.
 1. Makes sure only one subdevice is selected on the [driver board](#driver). Multiple selections can lead to unexpected results.
 
-# Programming a comm panel
-{:#comm}
+# Programming a comm panel {#comm}
 
 Each [comm board](../../Hardware/docs/comm.md) needs to be programmed.
 
@@ -72,7 +70,7 @@ To program the ATMega328 on a comm board, connect the board to the comm shield b
 
 Once the comm board is attached to the comm shield, you can connect the comm shield to the Arduino shield with the ribbon cable. Make sure to disconnect the ribbon cable when changing the comm boards.
 
-With the Arduino IDE open, select *Tools*{:.gui-txt} ­→ *Burn Bootloader*{:.gui-txt} to write the boot loader to the comm board's MCU. With the correct `comm.ino` open (the latest version is in [Firmware repository]({{site.baseurl}}Generation%204/Firmware/docs/) at `hardware_v0p2/comm/`), select *Sketch*{:.gui-txt} ­→ *Upload Using Programmer*{:.gui-txt}. Now the comm board should be fully functional. Disconnect the ribbon cable before programming the next comm board.
+With the Arduino IDE open, select *Tools*{:.gui-txt} ­→ *Burn Bootloader*{:.gui-txt} to write the boot loader to the comm board's MCU. With the correct `comm.ino` open (the latest version is in the GitHub repository linked to this page (see link in the left bottom of the page) at `hardware_v0p2/comm/`), select *Sketch*{:.gui-txt} ­→ *Upload Using Programmer*{:.gui-txt}. Now the comm board should be fully functional. Disconnect the ribbon cable before programming the next comm board.
 
 ## Checklist for flashing comm firmware
 
@@ -88,8 +86,7 @@ With the Arduino IDE open, select *Tools*{:.gui-txt} ­→ *Burn Bootloader*{:.g
 1. Go to *Sketch*{:.gui-txt} ­→ *Upload Using Programmer*{:.gui-txt} to upload sketch to comm board
 1. For the next comm board continue at step 5
 
-# Programming a driver panel
-{:#driver}
+# Programming a driver panel {#driver}
 
 The following steps have to be done for each individual driver board.
 
@@ -99,7 +96,7 @@ The following has to be done only once for all driver boards: In the the Arduino
 
 ![How to assemble a driver shield](assets/driver-shield_assembly.jpg "How to assemble a driver shield"){:.ifr .pop}
 
-The first step is to connect the [driver board]({{site.baseurl}}/Generation%204/Panel/docs/driver.html) to the [driver board shield](programmer.md#driver). The correct orientation of the driver is when the two triangles printed on the board point away from the connector (up in the picture). This will also mean, that the upper edge of the shield and the driver are well aligned and the lower edge of the driver aligns with the printed line on the shield. Make sure you double check the orientation as there is a chance of breaking the driver. There is no need to connect the external power supply, power is provided through the Arduino shield.
+The first step is to connect the [driver board]({{site.baseurl}}/Generation%204/Panel/docs/driver.html) to the [driver board shield]({{site.baseurl}}/Generation%204/Hardware/docs/programmer.html#driver). The correct orientation of the driver is when the two triangles printed on the board point away from the connector (up in the picture). This will also mean, that the upper edge of the shield and the driver are well aligned and the lower edge of the driver aligns with the printed line on the shield. Make sure you double check the orientation as there is a chance of breaking the driver. There is no need to connect the external power supply, power is provided through the Arduino shield.
 
 ## Flash driver board firmware
 {:.clear}
@@ -108,7 +105,7 @@ The first step is to connect the [driver board]({{site.baseurl}}/Generation%204/
 
 Once the driver is attached to the driver shield, you can connect the driver shield to the Arduino shield with the ribbon cable. Make sure to disconnect the ribbon cable when changing the driver board.
 
-Select one of the four subdevices to be programmed by moving one of the dip switches away from the panel and the other three towards the panel. In the picture on the right, subdevice number 4 is selected through the dip switch on the left. Select *Tools*{:.gui-txt} ­→ *Burn Bootloader*{:.gui-txt} to write the boot loader to the ATMega. With the correct `driver.ino` sketch opened, select *Sketch*{:.gui-txt} ­→ *Upload Using Programmer*{:.gui-txt} to upload sketch to panel. Currently the latest version of the driver sketch is in the [Firmware repository]({{site.baseurl}}Generation%204/Firmware/docs/) at `hardware_v0p2/driver/`.
+Select one of the four subdevices to be programmed by moving one of the dip switches away from the panel and the other three towards the panel. In the picture on the right, subdevice number 4 is selected through the dip switch on the left. Select *Tools*{:.gui-txt} ­→ *Burn Bootloader*{:.gui-txt} to write the boot loader to the ATMega. With the correct `driver.ino` sketch opened, select *Sketch*{:.gui-txt} ­→ *Upload Using Programmer*{:.gui-txt} to upload sketch to panel. Currently the latest version of the driver sketch is in the associate GitHub repository (see link in the bottom left of the page) at `hardware_v0p2/driver/`.
 
 Repeat the steps for "Flash Firmware" for the other three subdevices on the same driver panel.
 
