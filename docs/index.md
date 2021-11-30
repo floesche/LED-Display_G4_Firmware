@@ -66,7 +66,6 @@ The following has to be done only once for all comm boards: In the the Arduino I
 To program the ATMega328 on a comm board, connect the board to the comm shield board in a way, that you can see the components on both boards (also see image). There is no need to connect the external power supply, power is provided through the Arduino shield.
 
 ## Flash comm board firmware
-{:.clear}
 
 Once the comm board is attached to the comm shield, you can connect the comm shield to the Arduino shield with the ribbon cable. Make sure to disconnect the ribbon cable when changing the comm boards.
 
@@ -99,7 +98,6 @@ The following has to be done only once for all driver boards: In the the Arduino
 The first step is to connect the [driver board]({{site.baseurl}}/Generation%204/Panel/docs/driver.html) to the [driver board shield]({{site.baseurl}}/Generation%204/Hardware/docs/programmer.html#driver). The correct orientation of the driver is when the two triangles printed on the board point away from the connector (up in the picture). This will also mean, that the upper edge of the shield and the driver are well aligned and the lower edge of the driver aligns with the printed line on the shield. Make sure you double check the orientation as there is a chance of breaking the driver. There is no need to connect the external power supply, power is provided through the Arduino shield.
 
 ## Flash driver board firmware
-{:.clear}
 
 ![Dip switch selecting subdevice 1](assets/driver-shield_dip-switch_detail.jpg "Dip switch selecting subdevice 1"){:.ifr .pop}
 
