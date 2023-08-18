@@ -52,8 +52,8 @@ i2cMessage[1] = pixel[0][0] | (pixel[0][1] << 4);
 i2cMessage[2] = pixel[0][2] | (pixel[0][3] << 4);
 i2cMessage[3] = pixel[0][4] | (pixel[0][5] << 4);
 i2cMessage[4] = pixel[0][6] | (pixel[0][7] << 4);
-i2cMessage[6] = pixel[1][0] | (pixel[1][0] << 4);
-i2cMessage[7] = pixel[1][2] | (pixel[1][3] << 4);
+i2cMessage[5] = pixel[1][0] | (pixel[1][0] << 4);
+i2cMessage[6] = pixel[1][2] | (pixel[1][3] << 4);
 ... 
 i2cMessage[32] = pixel[7][6] | (pixel[7][7] << 4);
 ```
